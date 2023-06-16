@@ -75,8 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: color,
                       height: randomHeight,
                       alignment: Alignment.center,
-                      child: TextButton(
-                        style: TextButton.styleFrom(foregroundColor: Colors.white),
+                      child: ElevatedButton(
                         onPressed: () => dismiss(value: color.value),
                         child: const Text('Dismiss'),
                       ),
@@ -87,6 +86,36 @@ class _MyHomePageState extends State<MyHomePage> {
                 debugPrint('v: $v');
               },
               child: const Text('Show Flush'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                // 生成随机数
+                // 再根据随机数生成随机颜色
+
+                final random = Random();
+
+                final color = Color.fromARGB(255, random.nextInt(255), random.nextInt(255), random.nextInt(255));
+
+                final double randomHeight = 100 + random.nextInt(100).toDouble();
+
+                final v = await FlutterFlushBar.global().showFlushBar<int>(
+                  context,
+                  childBuilder: (context, dismiss) {
+                    return Container(
+                      color: color,
+                      height: randomHeight,
+                      alignment: Alignment.center,
+                      child: ElevatedButton(
+                        onPressed: () => dismiss(value: color.value),
+                        child: const Text('Dismiss Global'),
+                      ),
+                    );
+                  },
+                );
+
+                debugPrint('v: $v');
+              },
+              child: const Text('Show Global Flush'),
             ),
           ],
         ),
