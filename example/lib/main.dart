@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: const Text('Pop'),
               ),
             TextButton(
-              onPressed: () {
+              onPressed: () async {
                 // 生成随机数
                 // 再根据随机数生成随机颜色
 
@@ -69,21 +69,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   random.nextInt(255),
                 );
 
-                FlutterFlushBar.instance.showFlushBar(
+                final v = await FlutterFlushBar.global().showFlushBar<int>(
                   context,
                   childBuilder: (context, dismiss) {
                     return Container(
                       color: color,
-                      height: 100,
+                      height: 200,
                       alignment: Alignment.center,
                       child: TextButton(
                         style: TextButton.styleFrom(foregroundColor: Colors.white),
-                        onPressed: () => dismiss(),
+                        onPressed: () => dismiss(value: 123),
                         child: const Text('Dismiss'),
                       ),
                     );
                   },
                 );
+
+                debugPrint('v: $v');
               },
               child: const Text('Show Flush'),
             ),

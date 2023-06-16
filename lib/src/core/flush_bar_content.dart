@@ -43,7 +43,7 @@ class FlushBarContent<T> extends StatefulWidget {
     this.duration = const Duration(seconds: 2),
     this.animationDuration = const Duration(milliseconds: 500),
     this.animationCurve = Curves.ease,
-    required this.onDismiss,
+    required this.onDismissed,
     this.onTap,
     this.height,
   });
@@ -52,7 +52,7 @@ class FlushBarContent<T> extends StatefulWidget {
   final Duration duration;
   final Duration animationDuration;
   final Curve animationCurve;
-  final Function(T? value) onDismiss;
+  final Function(T? value) onDismissed;
   final OnFlushTap<T>? onTap;
   final double? height;
 
@@ -105,7 +105,7 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
     _flushProvider.updateOffset(offset ?? Offset(0, -_height));
     _locked = true;
     await Future<void>.delayed(duration ?? widget.animationDuration);
-    widget.onDismiss(value);
+    widget.onDismissed(value);
   }
 
   void _onVerticalDragStart(DragStartDetails details) {

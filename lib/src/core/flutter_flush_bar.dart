@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'flush_bar_content.dart';
@@ -6,7 +8,9 @@ import 'flush_functions.dart';
 class FlutterFlushBar {
   FlutterFlushBar();
 
-  static final FlutterFlushBar instance = FlutterFlushBar();
+  static final FlutterFlushBar _global = FlutterFlushBar();
+
+  static FlutterFlushBar global() => _global;
 
   final List<OverlayEntry> _flushEntryList = <OverlayEntry>[];
 
@@ -20,17 +24,18 @@ class FlutterFlushBar {
     }
   }
 
-  void showFlushBar<T>(
+  Future<T?> showFlushBar<T extends Object?>(
     BuildContext context, {
     required FlushContentBuilder<T> childBuilder,
     Duration? animationDuration,
     Curve? animationCurve,
     Duration? duration,
     double? height,
-    Function(T? value)? onDismiss,
+    Function(T? value)? onDismissed,
     OnFlushTap<T>? onTap,
-  }) {
+  }) async {
     OverlayEntry? entry;
+    final Completer<T?> completer = Completer<T?>();
 
     entry = OverlayEntry(
       builder: (BuildContext context) => FlushBarContent<T>(
@@ -40,9 +45,10 @@ class FlutterFlushBar {
         animationCurve: animationCurve ?? Curves.ease,
         height: height,
         onTap: onTap,
-        onDismiss: (T? value) {
-          onDismiss?.call(value);
+        onDismissed: (T? value) {
+          onDismissed?.call(value);
           _showFlushComplete(context);
+          completer.complete(value);
         },
       ),
     );
@@ -52,6 +58,8 @@ class FlutterFlushBar {
     if (!_isFlushShowing) {
       _show(context, _flushEntryList.first);
     }
+
+    return completer.future;
   }
 
   void _show(BuildContext context, OverlayEntry entry) {
