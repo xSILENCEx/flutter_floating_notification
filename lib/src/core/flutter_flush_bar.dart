@@ -40,7 +40,8 @@ class FlutterFlushBar {
       builder: (BuildContext context) => FlushBarContent<T>(
         childBuilder: childBuilder,
         duration: duration ?? const Duration(seconds: 2),
-        animationDuration: animationDuration ?? const Duration(milliseconds: 500),
+        animationDuration:
+            animationDuration ?? const Duration(milliseconds: 500),
         animationCurve: animationCurve ?? Curves.ease,
         height: height,
         onTap: onTap,

@@ -48,7 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             ElevatedButton(
               onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => const MyHomePage(title: 'Title')),
+                MaterialPageRoute(
+                    builder: (_) => const MyHomePage(title: 'Title')),
               ),
               child: const Text('Next'),
             ),
@@ -71,7 +72,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   random.nextInt(255),
                 );
 
-                final double randomHeight = 100 + random.nextInt(100).toDouble();
+                final double randomHeight =
+                    100 + random.nextInt(100).toDouble();
 
                 final v = await FlutterFlushBar().showFlushBar<int>(
                   context,
@@ -106,7 +108,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   random.nextInt(255),
                 );
 
-                final double randomHeight = 100 + random.nextInt(100).toDouble();
+                final double randomHeight =
+                    100 + random.nextInt(100).toDouble();
 
                 final v = await FlutterFlushBar.global().showFlushBar<int>(
                   context,

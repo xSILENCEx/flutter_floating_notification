@@ -20,10 +20,12 @@ class AnimatedTranslate extends ImplicitlyAnimatedWidget {
   final FilterQuality? filterQuality;
 
   @override
-  ImplicitlyAnimatedWidgetState<ImplicitlyAnimatedWidget> createState() => _AppAnimatedPositionedState();
+  ImplicitlyAnimatedWidgetState<ImplicitlyAnimatedWidget> createState() =>
+      _AppAnimatedPositionedState();
 }
 
-class _AppAnimatedPositionedState extends AnimatedWidgetBaseState<AnimatedTranslate> {
+class _AppAnimatedPositionedState
+    extends AnimatedWidgetBaseState<AnimatedTranslate> {
   Tween<Offset>? _offsetTween;
 
   @override

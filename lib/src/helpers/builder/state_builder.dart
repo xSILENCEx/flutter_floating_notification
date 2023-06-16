@@ -41,7 +41,8 @@ class StateBuilder<T, V> extends StatefulWidget {
   State<StatefulWidget> createState() => _StateBuilderState<T, V>();
 }
 
-class _StateBuilderState<T, V> extends State<StateBuilder<T, V>> with SafeState<StateBuilder<T, V>> {
+class _StateBuilderState<T, V> extends State<StateBuilder<T, V>>
+    with SafeState<StateBuilder<T, V>> {
   late T _value;
 
   @override
@@ -69,8 +70,12 @@ class _StateBuilderState<T, V> extends State<StateBuilder<T, V>> with SafeState<
 
   void _valueChanged() {
     // 条件判断
-    final bool isSelected = widget.selector.call(widget.valueListenable.value) != widget.selector.call(_value);
-    final bool isValueChanged = widget.shouldRebuild?.call(_value, widget.valueListenable.value) ?? true;
+    final bool isSelected =
+        widget.selector.call(widget.valueListenable.value) !=
+            widget.selector.call(_value);
+    final bool isValueChanged =
+        widget.shouldRebuild?.call(_value, widget.valueListenable.value) ??
+            true;
 
     if (isSelected && isValueChanged) {
       setState(() {
@@ -83,10 +88,12 @@ class _StateBuilderState<T, V> extends State<StateBuilder<T, V>> with SafeState<
   Widget build(BuildContext context) {
     if (widget.child == null) {
       return widget.builder?.call(widget.selector(_value)) ??
-          widget.childBuilder?.call(widget.selector(_value), widget.child ?? const SizedBox.shrink()) ??
+          widget.childBuilder?.call(widget.selector(_value),
+              widget.child ?? const SizedBox.shrink()) ??
           const SizedBox.shrink();
     }
 
-    return widget.childBuilder?.call(widget.selector(_value), widget.child!) ?? const SizedBox.shrink();
+    return widget.childBuilder?.call(widget.selector(_value), widget.child!) ??
+        const SizedBox.shrink();
   }
 }

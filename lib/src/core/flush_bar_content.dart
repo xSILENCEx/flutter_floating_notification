@@ -28,7 +28,8 @@ class _FlushProvider extends ExValue<_FlushValue> {
   Offset get offset => value.offset;
 
   void updateOffset(Offset offset, {bool withGesture = false}) {
-    value = value.copyWith(offset: offset, duration: withGesture ? Duration.zero : null);
+    value = value.copyWith(
+        offset: offset, duration: withGesture ? Duration.zero : null);
   }
 
   void updateDuration(Duration duration) {
@@ -125,7 +126,9 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
       return;
     }
 
-    _flushProvider.updateOffset(Offset(0, _flushProvider.offset.dy + details.delta.dy), withGesture: true);
+    _flushProvider.updateOffset(
+        Offset(0, _flushProvider.offset.dy + details.delta.dy),
+        withGesture: true);
   }
 
   void _onVerticalDragEnd(DragEndDetails details) {
@@ -187,7 +190,9 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
       return;
     }
 
-    _flushProvider.updateOffset(Offset(_flushProvider.offset.dx + details.delta.dx, 0), withGesture: true);
+    _flushProvider.updateOffset(
+        Offset(_flushProvider.offset.dx + details.delta.dx, 0),
+        withGesture: true);
   }
 
   void _onHorizontalDragEnd(DragEndDetails details) {
@@ -207,9 +212,11 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
     final bool isFastToRight = details.velocity.pixelsPerSecond.dx > 500;
 
     if (isFastToLeft) {
-      _dismiss(offset: Offset(-sw, 0), duration: const Duration(milliseconds: 200));
+      _dismiss(
+          offset: Offset(-sw, 0), duration: const Duration(milliseconds: 200));
     } else if (isFastToRight) {
-      _dismiss(offset: Offset(sw, 0), duration: const Duration(milliseconds: 200));
+      _dismiss(
+          offset: Offset(sw, 0), duration: const Duration(milliseconds: 200));
     } else if (value < -0.5) {
       _dismiss(offset: Offset(-sw, 0), duration: duration);
     } else if (value > 0.5) {

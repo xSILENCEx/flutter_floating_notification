@@ -47,7 +47,8 @@ class ExValue<T> extends ValueNotifier<T> {
     super.dispose();
   }
 
-  Widget build(Widget Function(T value) builder, {bool Function(T p, T n)? shouldRebuild}) {
+  Widget build(Widget Function(T value) builder,
+      {bool Function(T p, T n)? shouldRebuild}) {
     return ExBuilder<T>(
       valueListenable: this,
       shouldRebuild: shouldRebuild,
