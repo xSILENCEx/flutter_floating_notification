@@ -64,7 +64,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 final random = Random();
 
-                final color = Color.fromARGB(255, random.nextInt(255), random.nextInt(255), random.nextInt(255));
+                final color = Color.fromARGB(
+                  255,
+                  random.nextInt(255),
+                  random.nextInt(255),
+                  random.nextInt(255),
+                );
 
                 final double randomHeight = 100 + random.nextInt(100).toDouble();
 
@@ -94,7 +99,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 final random = Random();
 
-                final color = Color.fromARGB(255, random.nextInt(255), random.nextInt(255), random.nextInt(255));
+                final color = Color.fromARGB(
+                  255,
+                  random.nextInt(255),
+                  random.nextInt(255),
+                  random.nextInt(255),
+                );
 
                 final double randomHeight = 100 + random.nextInt(100).toDouble();
 
