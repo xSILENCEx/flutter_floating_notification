@@ -31,7 +31,6 @@ class FlutterFlushBar {
     Curve? animationCurve,
     Duration? duration,
     double? height,
-    Function(T? value)? onDismissed,
     OnFlushTap<T>? onTap,
   }) async {
     OverlayEntry? entry;
@@ -46,9 +45,8 @@ class FlutterFlushBar {
         height: height,
         onTap: onTap,
         onDismissed: (T? value) {
-          onDismissed?.call(value);
-          _showFlushComplete(context);
           completer.complete(value);
+          _next(context);
         },
       ),
     );
@@ -67,7 +65,7 @@ class FlutterFlushBar {
     Future<void>.microtask(() => _overlayInsert(context, entry));
   }
 
-  void _showFlushComplete(BuildContext context) {
+  void _next(BuildContext context) {
     if (_flushEntryList.isNotEmpty) {
       _flushEntryList.first.remove();
       _flushEntryList.removeAt(0);
