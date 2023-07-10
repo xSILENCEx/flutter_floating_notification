@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 import 'floating_bar_content.dart';
 import 'floating_functions.dart';
 
+/// 浮动通知队列对象
 class FlutterFlushBar {
   FlutterFlushBar();
 
   static final FlutterFlushBar _global = FlutterFlushBar();
 
+  /// 全局浮动通知队列对象
   static FlutterFlushBar global() => _global;
 
   final List<OverlayEntry> _flushEntryList = <OverlayEntry>[];
@@ -24,7 +26,8 @@ class FlutterFlushBar {
     }
   }
 
-  Future<T?> showFlushBar<T extends Object?>(
+  /// 显示浮动通知
+  Future<T?> showFloatingBar<T extends Object?>(
     BuildContext context, {
     required FlushContentBuilder<T> childBuilder,
     Duration? animationDuration,
@@ -79,6 +82,7 @@ class FlutterFlushBar {
     }
   }
 
+  /// 清空浮动通知
   void clear() {
     for (final OverlayEntry entry in _flushEntryList) {
       entry.remove();

@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 final double randomHeight =
                     100 + random.nextInt(100).toDouble();
 
-                final v = await FlutterFlushBar().showFlushBar<int>(
+                final v = await FlutterFlushBar().showFloatingBar<int>(
                   context,
                   childBuilder: (context, dismiss) {
                     return Container(
@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 final double randomHeight =
                     100 + random.nextInt(100).toDouble();
 
-                final v = await FlutterFlushBar.global().showFlushBar<int>(
+                final v = await FlutterFlushBar.global().showFloatingBar<int>(
                   context,
                   childBuilder: (context, dismiss) {
                     return Container(

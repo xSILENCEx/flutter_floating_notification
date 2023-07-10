@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+/// Transform.translate 的动画封装
 class AnimatedTranslate extends ImplicitlyAnimatedWidget {
   const AnimatedTranslate({
     Key? key,

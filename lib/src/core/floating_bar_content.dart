@@ -14,7 +14,10 @@ class _FlushValue {
       : offset = const Offset(0, -100000),
         duration = Duration.zero;
 
+  /// 位置
   final Offset offset;
+
+  /// 动画时长
   final Duration duration;
 
   _FlushValue copyWith({Offset? offset, Duration? duration}) {
@@ -27,16 +30,19 @@ class _FlushProvider extends ExValue<_FlushValue> {
 
   Offset get offset => value.offset;
 
+  /// 更新位置
   void updateOffset(Offset offset, {bool withGesture = false}) {
     value = value.copyWith(
         offset: offset, duration: withGesture ? Duration.zero : null);
   }
 
+  /// 更新动画时长
   void updateDuration(Duration duration) {
     value = value.copyWith(duration: duration);
   }
 }
 
+/// 浮动通知组件
 class FlushBarContent<T> extends StatefulWidget {
   const FlushBarContent({
     super.key,
@@ -49,12 +55,25 @@ class FlushBarContent<T> extends StatefulWidget {
     this.height,
   });
 
+  /// 浮动通知构建器
   final FlushContentBuilder<T> childBuilder;
+
+  /// 显示时长
   final Duration duration;
+
+  /// 动画时长
   final Duration animationDuration;
+
+  /// 动画曲线
   final Curve animationCurve;
+
+  /// 关闭时回调
   final Function(T? value) onDismissed;
+
+  /// 点击时回调
   final OnFlushTap<T>? onTap;
+
+  /// 高度
   final double? height;
 
   @override
