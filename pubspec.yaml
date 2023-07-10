@@ -1,7 +1,7 @@
-name: flutter_flush_bar
+name: flutter_floating_notification
 description: A Flutter Flush Bar package that supports various gesture directions
 version: 0.0.1
-homepage: https://github.com/xSILENCEx/flutter_flush_bar
+homepage: https://github.com/xSILENCEx/flutter_floating_notification
 
 environment:
   sdk: '>=3.0.2 <4.0.0'

@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_flush_bar/src/helpers/safe_state.dart';
+import 'package:flutter_floating_notification/src/helpers/safe_state.dart';
 
 /// 简化的 `ExValueBuilder`
 class StateBuilder<T, V> extends StatefulWidget {

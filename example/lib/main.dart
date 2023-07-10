@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_flush_bar/flutter_flush_bar.dart';
+import 'package:flutter_floating_notification/flutter_floating_notification.dart';
 
 void main() {
   runApp(const MyApp());

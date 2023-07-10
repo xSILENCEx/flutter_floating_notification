@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_flush_bar/src/helpers/animated_translate.dart';
-import 'package:flutter_flush_bar/src/helpers/ex_value.dart';
-import 'package:flutter_flush_bar/src/helpers/get_size.dart';
+import 'package:flutter_floating_notification/src/helpers/animated_translate.dart';
+import 'package:flutter_floating_notification/src/helpers/ex_value.dart';
+import 'package:flutter_floating_notification/src/helpers/get_size.dart';
 
-import 'flush_functions.dart';
+import 'floating_functions.dart';
 
 class _FlushValue {
   const _FlushValue(this.offset, this.duration);

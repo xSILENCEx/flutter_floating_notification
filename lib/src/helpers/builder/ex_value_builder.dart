@@ -3,7 +3,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_flush_bar/src/helpers/safe_state.dart';
+import 'package:flutter_floating_notification/src/helpers/safe_state.dart';
 
 typedef ValueWidgetBuilder<T> = Widget Function(
     BuildContext context, T value, Widget? child);

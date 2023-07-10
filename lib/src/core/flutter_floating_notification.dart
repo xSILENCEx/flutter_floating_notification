@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'flush_bar_content.dart';
-import 'flush_functions.dart';
+import 'floating_bar_content.dart';
+import 'floating_functions.dart';
 
 class FlutterFlushBar {
   FlutterFlushBar();
