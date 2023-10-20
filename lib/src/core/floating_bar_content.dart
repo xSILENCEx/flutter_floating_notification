@@ -142,6 +142,20 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
     }
 
     if (details.delta.dy > 0 && _flushProvider.offset.dy >= 0) {
+      // 随着距离增大阻力
+      final double resistance = Curves.easeOutCirc.flipped
+          .transform(1 - (_flushProvider.offset.dy / 30));
+
+      double distance = details.delta.dy * resistance;
+
+      if (distance < 0) {
+        distance = 0;
+      }
+
+      _flushProvider.updateOffset(
+        Offset(0, _flushProvider.offset.dy + distance),
+        withGesture: true,
+      );
       return;
     }
 
@@ -160,6 +174,12 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
     final bool isFast = details.velocity.pixelsPerSecond.dy < -500;
 
     Duration duration = widget.animationDuration * value;
+
+    if (_flushProvider.offset.dy > 0) {
+      duration =
+          widget.animationDuration * (1 - _flushProvider.offset.dy / _height);
+    }
+
     if (duration <= Duration.zero) {
       duration = const Duration(milliseconds: 50);
     }
