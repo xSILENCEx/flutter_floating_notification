@@ -1,11 +1,15 @@
-## 0.0.1
+## 0.0.4
 
-* First commit
+* Add gesture direction controls
+
+## 0.0.3
+
+* Add drop-down damping
 
 ## 0.0.2
 
 * Add comments, modify details
 
-## 0.0.3
+## 0.0.1
 
-* Add drop-down damping
+* First commit
