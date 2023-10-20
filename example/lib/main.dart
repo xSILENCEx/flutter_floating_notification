@@ -113,6 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 final v = await FlutterFlushBar.global().showFloatingBar<int>(
                   context,
+                  direction: FloatingGestureDirection.vertical,
                   childBuilder: (context, dismiss) {
                     return Container(
                       color: color,
