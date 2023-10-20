@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'floating_bar_content.dart';
 import 'floating_functions.dart';
+import 'floating_gesture_direction.dart';
 
 /// 浮动通知队列对象
 class FlutterFlushBar {
@@ -35,6 +36,7 @@ class FlutterFlushBar {
     Duration? duration,
     double? height,
     OnFlushTap<T>? onTap,
+    FloatingGestureDirection direction = FloatingGestureDirection.all,
   }) async {
     OverlayEntry? entry;
     final Completer<T?> completer = Completer<T?>();
@@ -48,6 +50,7 @@ class FlutterFlushBar {
         animationCurve: animationCurve ?? Curves.ease,
         height: height,
         onTap: onTap,
+        direction: direction,
         onDismissed: (T? value) {
           completer.complete(value);
           _next(context);

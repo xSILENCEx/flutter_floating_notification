@@ -6,6 +6,7 @@ import 'package:flutter_floating_notification/src/helpers/ex_value.dart';
 import 'package:flutter_floating_notification/src/helpers/get_size.dart';
 
 import 'floating_functions.dart';
+import 'floating_gesture_direction.dart';
 
 class _FlushValue {
   const _FlushValue(this.offset, this.duration);
@@ -53,6 +54,7 @@ class FlushBarContent<T> extends StatefulWidget {
     required this.onDismissed,
     this.onTap,
     this.height,
+    required this.direction,
   });
 
   /// 浮动通知构建器
@@ -75,6 +77,9 @@ class FlushBarContent<T> extends StatefulWidget {
 
   /// 高度
   final double? height;
+
+  /// 支持的手势方向
+  final FloatingGestureDirection direction;
 
   @override
   State<FlushBarContent<T>> createState() => _FlushBarContentState<T>();
@@ -129,6 +134,8 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
   }
 
   void _onVerticalDragStart(DragStartDetails details) {
+    if (widget.direction == FloatingGestureDirection.horizontal) return;
+
     if (_flushProvider.offset.dx != 0 || _locked) {
       return;
     }
@@ -137,6 +144,8 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
   }
 
   void _onVerticalDragUpdate(DragUpdateDetails details) {
+    if (widget.direction == FloatingGestureDirection.horizontal) return;
+
     if (_flushProvider.offset.dx != 0 || _locked) {
       return;
     }
@@ -165,6 +174,8 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
   }
 
   void _onVerticalDragEnd(DragEndDetails details) {
+    if (widget.direction == FloatingGestureDirection.horizontal) return;
+
     if (_flushProvider.offset.dx != 0 || _locked) {
       return;
     }
@@ -195,6 +206,8 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
   }
 
   void _onVerticalDragCancel() {
+    if (widget.direction == FloatingGestureDirection.horizontal) return;
+
     if (_flushProvider.offset.dx != 0 || _locked) {
       return;
     }
@@ -217,6 +230,8 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
   }
 
   void _onHorizontalDragStart(DragStartDetails details) {
+    if (widget.direction == FloatingGestureDirection.vertical) return;
+
     if (_flushProvider.offset.dy != 0 || _locked) {
       return;
     }
@@ -225,6 +240,8 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
   }
 
   void _onHorizontalDragUpdate(DragUpdateDetails details) {
+    if (widget.direction == FloatingGestureDirection.vertical) return;
+
     if (_flushProvider.offset.dy != 0 || _locked) {
       return;
     }
@@ -235,6 +252,8 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
   }
 
   void _onHorizontalDragEnd(DragEndDetails details) {
+    if (widget.direction == FloatingGestureDirection.vertical) return;
+
     if (_flushProvider.offset.dy != 0 || _locked) {
       return;
     }
@@ -268,6 +287,8 @@ class _FlushBarContentState<T> extends State<FlushBarContent<T>> {
   }
 
   void _onHorizontalDragCancel() {
+    if (widget.direction == FloatingGestureDirection.vertical) return;
+
     if (_flushProvider.offset.dy != 0 || _locked) {
       return;
     }
