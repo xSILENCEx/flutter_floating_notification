@@ -7,13 +7,13 @@ import 'floating_functions.dart';
 import 'floating_gesture_direction.dart';
 
 /// 浮动通知队列对象
-class FlutterFlushBar {
-  FlutterFlushBar();
+class FlutterFloatNotification {
+  FlutterFloatNotification();
 
-  static final FlutterFlushBar _global = FlutterFlushBar();
+  static final FlutterFloatNotification _global = FlutterFloatNotification();
 
   /// 全局浮动通知队列对象
-  static FlutterFlushBar global() => _global;
+  static FlutterFloatNotification global() => _global;
 
   final List<OverlayEntry> _flushEntryList = <OverlayEntry>[];
 
@@ -45,8 +45,7 @@ class FlutterFlushBar {
       builder: (BuildContext context) => FlushBarContent<T>(
         childBuilder: childBuilder,
         duration: duration ?? const Duration(seconds: 2),
-        animationDuration:
-            animationDuration ?? const Duration(milliseconds: 500),
+        animationDuration: animationDuration ?? const Duration(milliseconds: 500),
         animationCurve: animationCurve ?? Curves.ease,
         height: height,
         onTap: onTap,

@@ -11,7 +11,7 @@ A Flutter package of custom flush bar.
 
 <br>
 
-### 1. A FlutterFlushBar() maintains a queue
+### 1. A FlutterFloatNotification() maintains a queue
 
 <img src="https://raw.githubusercontent.com/xSILENCEx/project_images/main/flutter_flush_bar/new.gif"  height=430 style="float: left">
 
@@ -27,7 +27,7 @@ final color = Color.fromARGB(
 
 final double randomHeight = 100 + random.nextInt(100).toDouble();
 
-final v = await FlutterFlushBar().showFlushBar<int>(
+final v = await FlutterFloatNotification().showFlushBar<int>(
     context,
     childBuilder: (context, dismiss) {
     return Container(
@@ -47,7 +47,7 @@ debugPrint('v: $v');
 
 <br>
 
-### 1. The FlutterFlushBar.global() contains a global queue
+### 1. The FlutterFloatNotification.global() contains a global queue
 
 <img src="https://raw.githubusercontent.com/xSILENCEx/project_images/main/flutter_flush_bar/global.gif"  height=430 style="float: left">
 
@@ -63,7 +63,7 @@ final color = Color.fromARGB(
 
 final double randomHeight = 100 + random.nextInt(100).toDouble();
 
-final v = await FlutterFlushBar.global().showFlushBar<int>(
+final v = await FlutterFloatNotification.global().showFlushBar<int>(
     context,
     childBuilder: (context, dismiss) {
     return Container(

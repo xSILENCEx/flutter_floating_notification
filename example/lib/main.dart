@@ -32,8 +32,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // final FlutterFlushBar _flushBar = FlutterFlushBar();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,8 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             ElevatedButton(
               onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                    builder: (_) => const MyHomePage(title: 'Title')),
+                MaterialPageRoute(builder: (_) => const MyHomePage(title: 'Title')),
               ),
               child: const Text('Next'),
             ),
@@ -72,10 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   random.nextInt(255),
                 );
 
-                final double randomHeight =
-                    100 + random.nextInt(100).toDouble();
+                final double randomHeight = 100 + random.nextInt(100).toDouble();
 
-                final v = await FlutterFlushBar().showFloatingBar<int>(
+                final v = await FlutterFloatNotification().showFloatingBar<int>(
                   context,
                   childBuilder: (context, dismiss) {
                     return Container(
@@ -108,13 +104,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   random.nextInt(255),
                 );
 
-                final double randomHeight =
-                    100 + random.nextInt(100).toDouble();
+                final double randomHeight = 100 + random.nextInt(100).toDouble();
 
-                final v = await FlutterFlushBar.global().showFloatingBar<int>(
+                final v = await FlutterFloatNotification.global().showFloatingBar<int>(
                   context,
                   direction: FloatingGestureDirection.vertical,
-                  childBuilder: (context, dismiss) {
+                  childBuilder: (context, FlushDismiss<int> dismiss) {
                     return Container(
                       color: color,
                       height: randomHeight,

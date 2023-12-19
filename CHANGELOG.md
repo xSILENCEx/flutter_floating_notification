@@ -1,3 +1,7 @@
+## 0.0.5
+
+* Rename, expose methods
+
 ## 0.0.4
 
 * Add gesture direction controls
